@@ -1,0 +1,10 @@
+#!/usr/bin/expect
+
+set timeout 20
+
+spawn g_rms -s data/ubi_amber_10.pdb -f data/ubi_amber_10.pdb -m data/matrix.xpm -o data/rmsd.xvg
+expect "Select a group:" 
+send "1\r" 
+expect "Select a group:" 
+send "1\r"
+interact
