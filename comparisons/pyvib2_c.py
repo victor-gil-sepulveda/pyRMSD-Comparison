@@ -10,7 +10,7 @@ import time
 from pyRMSD.RMSDCalculator import RMSDCalculator
 
 if __name__ == '__main__':
-    TRAJECTORY_FILE = "data/ubi_amber_100.pdb"
+    TRAJECTORY_FILE = "data/ubi_amber_1000.pdb"
     
     # We use prody to load the coordinates
     pdb_data = prody.parsePDB(TRAJECTORY_FILE)
@@ -40,7 +40,7 @@ if __name__ == '__main__':
     stop_t = time.time()
     print "PyVib2's computation time:", stop_t - start_t
     
-    # Computation with pyRMSD
+    # Computation with pyRMSD, PyVib2 uses QTRFIT 
     start_t = time.time()
     pyrmsd_rmsd_values = RMSDCalculator(coordinates, "QTRFIT_SERIAL_CALCULATOR").pairwiseRMSDMatrix()
     stop_t = time.time()

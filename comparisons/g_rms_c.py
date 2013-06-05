@@ -81,10 +81,10 @@ if __name__ == '__main__':
     print "g_rms's computation time:", stop_t - start_t
     os.system("rm data/matrix.xpm data/rmsd.xvg data/expect_script_tmp")
     
-    # Computation with pyRMSD
+    # Computation with pyRMSD, g_rms uses KABSCH's
     start_t = time.time()
     coordinates = Reader().readThisFile(TRAJECTORY_FILE).read()
-    RMSDCalculator(coordinates, "QTRFIT_SERIAL_CALCULATOR").oneVsFollowing(0) # This is to mimic g_rmsd pipeline 
+    RMSDCalculator(coordinates, "KABSCH_SERIAL_CALCULATOR").oneVsFollowing(0) # This is to mimic g_rmsd pipeline 
     pyrmsd_rmsd_values = RMSDCalculator(coordinates, "QTRFIT_SERIAL_CALCULATOR").pairwiseRMSDMatrix()
     stop_t = time.time()
     print "pyRMSD's computation time:", stop_t - start_t
@@ -98,6 +98,9 @@ if __name__ == '__main__':
     
     rmsd = numpy.sqrt(((numpy.array(c_m_values) - numpy.array(pyrmsd_rmsd_values))**2).sum()/len(c_m_values))
     print "RMSD", rmsd
+    
+    # g_rms results are a bit different, specially because we get them from an 'image file' in which
+    # values have been quantized
     numpy.testing.assert_almost_equal(c_m_values, pyrmsd_rmsd_values, 3)
     print "Done"
                      

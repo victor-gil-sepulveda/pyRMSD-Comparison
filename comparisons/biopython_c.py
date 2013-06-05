@@ -38,7 +38,7 @@ if __name__ == '__main__':
     stop_t = time.time()
     print "Biopython's computation time:", stop_t - start_t
 
-    # Computation with pyRMSD
+    # Computation with pyRMSD, Biopython uses KABSCH's
     start_t = time.time()
     pyrmsd_rmsd_values = RMSDCalculator(coordinates, "KABSCH_SERIAL_CALCULATOR").pairwiseRMSDMatrix()
     stop_t = time.time()
