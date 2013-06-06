@@ -8,7 +8,7 @@ This is a collection of 4 scripts that were used to compare pyRMSD against other
 * [Biopython](http://biopython.org/wiki/Main_Page): is a very mature Python package which offers numerous tools for  bioinformatics computations.  
 * [PyVib2](http://pyvib2.sourceforge.net/): is a pure Python package used to analyze vibrational motion and spectra of molecules.  
 
-This is the results table, showing speedup and an index of integration complexity\* for a RMSD matrix calculation task.  
+This is the results table, showing speedup and an index of integration complexity\* for an RMSD matrix calculation task.  
   
 <img src='table.png'></img>  
 
